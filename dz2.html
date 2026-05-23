@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        section { margin-bottom: 50px; border-bottom: 2px solid #ccc; padding-bottom: 20px; }
+
+        .clock { width: 200px; height: 200px; border: 5px solid teal; border-radius: 50%; position: relative; margin: 20px; }
+        .hand { position: absolute; bottom: 50%; left: 50%; transform-origin: bottom center; background: teal; border-radius: 5px; }
+        .h-hand { width: 6px; height: 60px; margin-left: -3px; animation: rot 10s linear infinite; }
+        .m-hand { width: 4px; height: 80px; margin-left: -2px; animation: rot 2s linear infinite; }
+        @keyframes rot { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .d-wrap { width: 400px; height: 200px; background: #ddd; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .txt { font-size: 24px; font-weight: bold; }
+        .door { position: absolute; top: 0; width: 50%; height: 100%; background: purple; z-index: 2; transition: none; }
+        .l-door { left: 0; }
+        .r-door { right: 0; }
+        .d-wrap:hover .door { transition: transform 2s; }
+        .d-wrap:hover .l-door { transform: translateX(-100%); }
+        .d-wrap:hover .r-door { transform: translateX(100%); }
+
+        .card { display: flex; width: 100%; height: 300px; border: 1px solid #ddd; overflow: hidden; position: relative; cursor: pointer; }
+        .t-part { flex: 1; display: flex; align-items: center; justify-content: center; background: #f9f9f9; z-index: 1; }
+        .i-part { flex: 1; overflow: hidden; }
+        .i-part img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s; display: block; }
+        
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 2; }
+        
+        .card:hover .overlay { opacity: 1; }
+        .card:hover .i-part img { transform: scale(1.2); }
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="clock">
+            <div class="hand h-hand"></div>
+            <div class="hand m-hand"></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="d-wrap">
+            <div class="txt">HELLO</div>
+            <div class="door l-door"></div>
+            <div class="door r-door"></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <div class="t-part">HELLO, WORLD!</div>
+            <div class="i-part">
+                <img src="https://picsum.photos/id/1015/600/400" alt="img">
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </section>
+
+</body>
+</html>

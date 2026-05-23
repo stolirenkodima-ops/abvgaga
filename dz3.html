@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div {
+            overflow: auto;
+            max-height: 400px;
+            max-width: 600px;
+            border: 1px solid #000;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 20px;
+            border: 1px solid #ccc;
+            white-space: nowrap;
+            background-color: white;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #ddd;
+            z-index: 2;
+        }
+
+        tbody td:first-child {
+            position: sticky;
+            left: 0;
+            background-color: #eee;
+            z-index: 1;
+        }
+
+        thead th:first-child {
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Заголовок 1</th>
+                    <th>Заголовок 2</th>
+                    <th>Заголовок 3</th>
+                    <th>Заголовок 4</th>
+                    <th>Заголовок 5</th>
+                    <th>Заголовок 6</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Рядок 1</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                </tr>
+                <tr>
+                    <td>Рядок 2</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                </tr>
+                <tr>
+                    <td>Рядок 3</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                </tr>
+                <tr>
+                    <td>Рядок 4</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                </tr>
+                <tr>
+                    <td>Рядок 5</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                </tr>
+                <tr>
+                    <td>Рядок 6</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                </tr>
+                <tr>
+                    <td>Рядок 7</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                </tr>
+                <tr>
+                    <td>Рядок 8</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                    <td>Дані</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

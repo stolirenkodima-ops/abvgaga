@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', sans-serif; 
+            background-color: #f4f4f4; 
+            display: flex;
+        }
+
+        .sidebar {
+            width: 70px;
+            height: 100vh;
+            background-color: #7a7a7a;
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transition: width 0.3s ease;
+            overflow: hidden;
+            z-index: 100;
+        }
+
+        .sidebar:hover {
+            width: 260px;
+        }
+
+        .menu-header { 
+            padding: 20px 30px; 
+            font-size: 20px; 
+            font-weight: 300; 
+            white-space: nowrap; 
+        }
+
+        .menu-item { 
+            display: flex; 
+            align-items: center; 
+            padding: 20px; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            font-size: 18px;
+            white-space: nowrap;
+        }
+        
+        .menu-item:hover { background-color: #666; }
+
+        .icon { 
+            margin-right: 25px; 
+            font-size: 24px; 
+            min-width: 30px; 
+            text-align: center; 
+        }
+
+        /* Контент */
+        .content { 
+            margin-left: 100px; 
+            padding: 40px; 
+            flex-grow: 1; 
+        }
+
+        /* Картки */
+        .card-container { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 50px; }
+        .card { 
+            width: 200px; background: white; border: 1px solid #ccc; text-align: center; 
+            padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: scale(1.05); box-shadow: 0 8px 12px rgba(0,0,0,0.2); }
+        .price { font-size: 30px; font-weight: bold; margin: 15px 0; color: #333; }
+        .buy-btn { border: none; padding: 10px 20px; cursor: pointer; color: white; width: 100%; font-weight: bold; }
+        
+        .btn-enterprise { background: #d81b60; }
+        .btn-pro { background: #fb8c00; }
+        .btn-standart { background: #4682b4; }
+        .btn-basic { background: #4caf50; }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="menu-header">MENU</div>
+        <div class="menu-item"><span class="icon">✏️</span> EDIT</div>
+        <div class="menu-item"><span class="icon">❤️</span> FAVORITES</div>
+        <div class="menu-item"><span class="icon">🕒</span> HISTORY</div>
+        <div class="menu-item"><span class="icon">🛡️</span> SECURITY</div>
+        <div class="menu-item"><span class="icon">⚙️</span> SETTINGS</div>
+    </nav>
+
+    <div class="content">
+        <h1>WHAT IS LOREM IPSUM?</h1>
+        <p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY. LOREM IPSUM HAS BEEN THE INDUSTRY'S STANDARD DUMMY TEXT EVER SINCE THE 1500S.</p>
+
+        <h2>WHY DO WE USE IT?</h2>
+        <p>IT IS A LONG ESTABLISHED FACT THAT A READER WILL BE DISTRACTED BY THE READABLE CONTENT OF A PAGE WHEN LOOKING AT ITS LAYOUT.</p>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>ENTERPRISE</h3>
+                <div class="price">$69</div>
+                <button class="buy-btn btn-enterprise">BUY</button>
+            </div>
+            <div class="card">
+                <h3>PROFESSIONAL</h3>
+                <div class="price">$29</div>
+                <button class="buy-btn btn-pro">BUY</button>
+            </div>
+            <div class="card">
+                <h3>STANDART</h3>
+                <div class="price">$19</div>
+                <button class="buy-btn btn-standart">BUY</button>
+            </div>
+            <div class="card">
+                <h3>BASIC</h3>
+                <div class="price">$9</div>
+                <button class="buy-btn btn-basic">BUY</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Великдень 2026</title>
+    <style>
+
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fdfdf0; color: #333; }
+
+        .sidebar {
+            width: 70px; height: 100vh; background-color: #7a7a7a; color: white;
+            position: fixed; left: 0; top: 0; transition: width 0.3s ease; overflow: hidden; z-index: 1000;
+        }
+        .sidebar:hover { width: 260px; }
+        .menu-item { padding: 20px; cursor: pointer; display: flex; align-items: center; white-space: nowrap; font-size: 18px; }
+        .menu-item:hover { background-color: #666; }
+        .icon { margin-right: 20px; font-size: 24px; min-width: 30px; text-align: center; }
+
+        .wrapper { width: 900px; margin: 0 auto; padding: 20px; }
+
+        .sticky-header {
+            position: sticky; top: 0;
+            background: linear-gradient(to right, #fff9c4, #c8e6c9);
+            padding: 20px; text-align: center; border: 3px double #f48fb1;
+            border-radius: 10px; margin-bottom: 20px; z-index: 500;
+        }
+
+        section { margin: 30px 0; padding: 25px; border: 2px dashed #b39ddb; border-radius: 15px; background: white; }
+
+        .gallery-container { 
+            position: relative; 
+            height: 250px;
+            background-color: #fffaf0; 
+            margin-top: 20px;
+        }
+        
+        .img-box {
+            position: absolute; 
+            width: 220px; 
+            height: 150px;
+            box-sizing: border-box; 
+            padding: 10px;
+            background-color: #ffe0b2; 
+            border: 3px solid #ffcc80; 
+            border-radius: 20px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; overflow: hidden;
+        }
+        
+        .img-box span { font-size: 35px; margin-bottom: 5px; }
+        .img-box div { font-size: 13px; font-weight: bold; }
+
+        .img1 { top: 80px; left: 40px; }
+        .img2 { top: 80px; left: 340px; }
+        .img3 { top: 80px; left: 640px; }
+
+        .up-btn {
+            position: fixed; bottom: 30px; right: 30px; padding: 15px;
+            background-color: #81c784; color: white; border-radius: 50%;
+            text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        footer { text-align: center; padding: 20px; background-color: #c8e6c9; border-top: 2px solid #a5d6a7; }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="menu-item"><span class="icon">🐣</span> MENU</div>
+        <div class="menu-item"><span class="icon">📖</span> ІСТОРІЯ</div>
+        <div class="menu-item"><span class="icon">🥐</span> РЕЦЕПТИ</div>
+        <div class="menu-item"><span class="icon">📸</span> ГАЛЕРЕЯ</div>
+        <div class="menu-item"><span class="icon">📞</span> КОНТАКТИ</div>
+    </nav>
+
+    <main class="wrapper">
+        <header class="sticky-header">
+            <h1>Великдень 2026 🥚🌷</h1>
+        </header>
+
+        <section id="info">
+            <h2>Про свято</h2>
+            <p>Великдень — це свято світла та надії. Символи Великодня: крашанки, паска, писанки. Це час, коли ми збираємося з рідними.</p>
+        </section>
+
+        <section id="recipes">
+            <h2>Рецепти страв</h2>
+            <ul>
+                <li>Паска — головний атрибут свята.</li>
+                <li>Крашанки — кольорові символи життя.</li>
+                <li>Сирна паска — ніжна та солодка.</li>
+            </ul>
+        </section>
+
+        <section class="gallery-container">
+            <h2>Галерея</h2>
+<div class="img-box img1">
+    <img src="https://img.tsn.ua/cached/236/tsn-0b4bc102/thumbs/1200x630/55/fe/82754336aca455185881515c2957fe55.jpg" alt="Писанки">
+    <div>Писанки</div>
+</div>
+<div class="img-box img2">
+    <img src="https://valentino.lviv.ua/wp-content/uploads/2021/04/1619171016419889-1024x683.jpg" alt="Кошик">
+    <div>Кошик</div>
+</div>
+<div class="img-box img3">
+    <img src="https://static.nv.ua/shared/system/Article/posters/003/268/324/original/62c65a4c51bca25192cf3fc38c5c8ef9.png?q=85&stamp=20260403130216&w=900&f=webp" alt="Святковий стіл">
+    <div>Святковий стіл</div>
+</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Великдень 2026 | Світле свято | Контакти: 0(000) 000-000</p>
+    </footer>
+
+    <a href="#" class="up-btn">⬆️</a>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 20px; background-color: #f4f4f4; }
+        h1 { text-align: center; color: #333; margin: 30px 0; }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 50px auto;
+        }
+        .card { background: white; padding: 15px; border: 1px solid #ddd; }
+        .img-box { background: #ccc; height: 120px; margin-bottom: 10px; }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .message-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .message-row.right { flex-direction: row-reverse; }
+
+        .avatar { width: 40px; height: 40px; background: #999; border-radius: 50%; flex-shrink: 0; }
+        
+        .content { display: flex; flex-direction: column; max-width: 70%; }
+
+        .message-row.right .content { align-items: flex-end; }
+        
+        .user-info { font-size: 12px; color: #555; margin-bottom: 4px; }
+        .bubble { padding: 10px 15px; border-radius: 15px; }
+        .bubble.pink { background: #ffcdd2; }
+        .bubble.blue { background: #b3e5fc; }
+    </style>
+</head>
+<body>
+
+    <div class="news-grid">
+        <div class="card"><div class="img-box"></div><h3>Заголовок 1</h3><p>Опис новини 1</p></div>
+        <div class="card"><div class="img-box"></div><h3>Заголовок 2</h3><p>Опис новини 2</p></div>
+        <div class="card"><div class="img-box"></div><h3>Заголовок 3</h3><p>Опис новини 3</p></div>
+        <div class="card"><div class="img-box"></div><h3>Заголовок 4</h3><p>Опис новини 4</p></div>
+        <div class="card"><div class="img-box"></div><h3>Заголовок 5</h3><p>Опис новини 5</p></div>
+        <div class="card"><div class="img-box"></div><h3>Заголовок 6</h3><p>Опис новини 6</p></div>
+        <div class="card"><div class="img-box"></div><h3>Заголовок 7</h3><p>Опис новини 7</p></div>
+        <div class="card"><div class="img-box"></div><h3>Заголовок 8</h3><p>Опис новини 8</p></div>
+        <div class="card"><div class="img-box"></div><h3>Заголовок 9</h3><p>Опис новини 9</p></div>
+    </div>
+
+    <div class="chat-container">
+        <div class="message-row">
+            <div class="avatar"></div>
+            <div class="content">
+                <div class="user-info">анна 5 годин тому</div>
+                <div class="bubble pink">привіт як справи?</div>
+            </div>
+        </div>
+        <div class="message-row right">
+            <div class="avatar"></div>
+            <div class="content">
+                <div class="user-info">олексій 5 годин тому</div>
+                <div class="bubble blue">привіт все чудово а у тебе як</div>
+            </div>
+        </div>
+        <div class="message-row">
+            <div class="avatar"></div>
+            <div class="content">
+                <div class="user-info">анна 4 години тому</div>
+                <div class="bubble pink">теж усе чудово можливо сьогодні кудись підемо?</div>
+            </div>
+        </div>
+        <div class="message-row right">
+            <div class="avatar"></div>
+            <div class="content">
+                <div class="user-info">олексій 3 години тому</div>
+                <div class="bubble blue">так звичайно </div>
+            </div>
+        </div>
+        <div class="message-row">
+            <div class="avatar"></div>
+            <div class="content">
+                <div class="user-info">анна 3 години тому</div>
+                <div class="bubble pink">тоді запрошую тебе у нове кафе яке відчинилося сьогодні</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        
+        .container { 
+            background: #fff; 
+            padding: 30px; 
+            margin: 20px auto; 
+            max-width: 800px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        .ui-row { margin-bottom: 25px; padding-bottom: 10px; border-bottom: 1px solid #f9f9f9; }
+
+        .card-wrapper { background: #8fbac0; width: 400px; margin: 0 auto; padding: 25px; border-radius: 10px; color: #333; }
+        .card-header { background: #d35400; color: white; padding: 12px; margin: -25px -25px 20px -25px; border-radius: 10px 10px 0 0; font-weight: bold; }
+        .form-row { display: flex; gap: 15px; margin-top: 15px; }
+        .input-group { flex: 1; }
+        .card-wrapper input { width: 100%; padding: 10px; border: none; background: rgba(255,255,255,0.4); border-radius: 4px; box-sizing: border-box; }
+        label { font-size: 12px; display: block; margin-bottom: 5px; }
+
+        .input-text { padding: 10px; border: 1px solid #ccc; border-radius: 4px; width: 180px; }
+        .input-valid { border: 2px solid #28a745; }
+        .input-invalid { border: 2px solid #dc3545; }
+        
+        .switch { position: relative; display: inline-block; width: 44px; height: 22px; vertical-align: middle; }
+        .switch input { display: none; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; border-radius: 50%; }
+        .switch-green input:checked + .slider { background-color: #28a745; }
+        .switch-red input:checked + .slider { background-color: #dc3545; }
+        .switch input:checked + .slider:before { transform: translateX(22px); }
+
+        .radio-group { cursor: pointer; margin-right: 15px; display: inline-flex; align-items: center; position: relative; }
+        .radio-group input { opacity: 0; position: absolute; cursor: pointer; } 
+        .custom-radio { height: 18px; width: 18px; border: 2px solid #28a745; border-radius: 50%; margin-right: 8px; display: inline-block; }
+        .radio-group input:checked + .custom-radio::after { content: ""; display: block; width: 10px; height: 10px; background: #28a745; border-radius: 50%; margin: 2px auto; }
+        
+        .btn { padding: 8px 16px; border: none; cursor: pointer; color: white; border-radius: 4px; margin-right: 5px; }
+        .btn-green { background: #28a745; } .btn-red { background: #dc3545; } .btn-disabled { background: #6c757d; }
+        .btn-round { border-radius: 50%; width: 35px; height: 35px; }
+        textarea { width: 100%; height: 80px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; resize: vertical; }
+
+        .reg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .reg-input { border: none; border-bottom: 1px solid #999; padding: 8px 0; background: transparent; width: 100%; }
+        .submit-btn { background: #008080; color: white; padding: 12px 30px; border: none; cursor: pointer; margin-top: 20px; }
+        @media (max-width: 600px) { .reg-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-wrapper">
+            <div class="card-header">CREDIT CARD DETAILS</div>
+            <label>Card Number</label>
+            <input type="text" placeholder="1234 5678 9012 3456">
+            <label style="margin-top:15px;">Name On Card</label>
+            <input type="text" placeholder="Name Surname">
+            <div class="form-row">
+                <div class="input-group">
+                    <label>Expire Date</label>
+                    <input type="text" placeholder="02 / 2017">
+                </div>
+                <div class="input-group">
+                    <label>CSV No.</label>
+                    <input type="text" placeholder="***">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-row">
+            <p><strong>Inputs</strong></p>
+            <input type="text" class="input-text" placeholder="Enter some text">
+            <input type="text" class="input-text input-valid" value="valid text">
+            <input type="text" class="input-text input-invalid" value="invalid text">
+        </div>
+        
+        <div class="ui-row">
+            <p><strong>Check boxes</strong></p>
+            <label class="switch switch-green"><input type="checkbox" checked><span class="slider"></span></label> Subscribe
+            <label class="switch switch-red"><input type="checkbox" checked><span class="slider"></span></label> Subscribe
+        </div>
+
+        <div class="ui-row">
+            <p><strong>Radio buttons</strong></p>
+            Gender: 
+            <label class="radio-group"><input type="radio" name="g" checked><span class="custom-radio"></span> Male</label>
+            <label class="radio-group"><input type="radio" name="g"><span class="custom-radio"></span> Female</label>
+        </div>
+
+        <div class="ui-row">
+            <p><strong>Buttons</strong></p>
+            <button class="btn btn-green">Active</button>
+            <button class="btn btn-green">Hover</button>
+            <button class="btn btn-red">Danger</button>
+            <button class="btn btn-red">Hover</button>
+            <button class="btn btn-disabled" disabled>Disabled</button>
+            <button class="btn btn-green btn-round">+</button>
+            <button class="btn btn-red btn-round">-</button>
+        </div>
+        
+        <div class="ui-row">
+            <p><strong>Text area</strong></p>
+            <textarea placeholder="Enter some text..."></textarea>
+        </div>
+    </div>
+
+    <div class="container">
+        <form class="reg-grid">
+            <div style="display:flex; flex-direction:column; gap:20px;">
+                <input type="text" class="reg-input" placeholder="Username">
+                <input type="email" class="reg-input" placeholder="Email address">
+                <div style="display:flex; gap:10px;">
+                    <input type="password" class="reg-input" placeholder="Password">
+                    <input type="password" class="reg-input" placeholder="Confirm password">
+                </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:20px;">
+                <div style="display:flex; gap:10px;">
+                    <input type="text" class="reg-input" placeholder="First name">
+                    <input type="text" class="reg-input" placeholder="Last name">
+                </div>
+                <select class="reg-input"><option>Male</option><option>Female</option></select>
+                <input type="date" class="reg-input">
+            </div>
+            <div style="grid-column: span 2;">
+                <input type="checkbox"> I want to receive news and special offers<br>
+                <input type="checkbox"> I agree with the Terms and Conditions<br>
+                <button class="submit-btn">SUBMIT</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

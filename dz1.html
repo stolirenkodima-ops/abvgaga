@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДЗ 1 - Всі завдання разом</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .page-title {
+            font-size: 26px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: -15px;
+            text-align: center;
+        }
+
+        .fridge-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .products-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            border: 1px solid #c0c0c0;
+            border-radius: 20px;
+            width: 160px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10px;
+            box-sizing: border-box;
+        }
+
+        .product-icon {
+            max-width: 80px;
+            max-height: 80px;
+            object-fit: contain;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .product-name {
+            font-size: 15px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .footer-note {
+            font-size: 16px;
+            color: #000;
+            margin-top: 40px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .vertical-menu {
+            width: 300px;
+            background-color: #7a7a7a;
+            border-radius: 16px;
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .menu-item:hover {
+            background-color: #555555;
+        }
+
+        .menu-icon {
+            width: 22px;
+            height: 22px;
+            margin-right: 20px;
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .menu-item.edit:hover .menu-icon { stroke: #ffffff; }
+        .menu-item.favorites:hover .menu-icon { stroke: #ff4d4d; fill: #ff4d4d; }
+        .menu-item.history:hover .menu-icon { stroke: #87CEEB; }
+        .menu-item.security:hover .menu-icon { stroke: #FFD700; fill: #FFD700; }
+        .menu-item.settings:hover .menu-icon { stroke: #FFD700; }
+
+        .custom-footer {
+            background-color: #24415c;
+            color: #ffffff;
+            max-width: 1000px;
+            width: 100%;
+            border-radius: 16px;
+            padding: 40px 60px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-links-container {
+            display: flex;
+            gap: 100px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-column a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            transition: text-decoration 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: background-image 0.2s ease-in-out;
+        }
+
+        .social-link.fb {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='8' fill='%238a99a8'/%3E%3Cpath d='M24 28v-9h3l.5-3.5H24V13.3c0-1 .3-1.4 1.2-1.4H27V8.4c-.6-.1-1.8-.2-3-.2-3.7 0-5.8 2-5.8 5.7V15.5h-3V19h3v9h5z' fill='white'/%3E%3C/svg%3E");
+        }
+        .social-link.fb:hover {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='8' fill='%231877f2'/%3E%3Cpath d='M24 28v-9h3l.5-3.5H24V13.3c0-1 .3-1.4 1.2-1.4H27V8.4c-.6-.1-1.8-.2-3-.2-3.7 0-5.8 2-5.8 5.7V15.5h-3V19h3v9h5z' fill='white'/%3E%3C/svg%3E");
+        }
+
+        .social-link.ig {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='8' fill='%238a99a8'/%3E%3Cpath d='M22 13.2c2.9 0 3.2 0 4.4.1 1 .1 1.6.3 2 .4.5.2.9.5 1.3.9.4.4.7.8.9 1.3.1.4.3 1 .4 2 .1 1.2.1 1.5.1 4.4s0 3.2-.1 4.4c-.1 1-.3 1.6-.4 2-.2.5-.5.9-.9 1.3-.4.4-.8.7-1.3.9-.4.1-1 .3-2 .4-1.2.1-1.5.1-4.4.1s-3.2 0-4.4-.1c-1-.1-1.6-.3-2-.4-.5-.2-.9-.5-1.3-.9-.4-.4-.7-.8-.9-1.3-.1-.4-.3-1-.4-2-.1-1.2-.1-1.5-.1-4.4s0-3.2.1-4.4c.1-1 .3-1.6.4-2 .2-.5.5-.9.9-1.3.4-.4.8-.7 1.3-.9.4-.1 1-.3 2-.4 1.2-.1 1.5-.1 4.4-.1zm0-2.2c-3 0-3.3 0-4.5.1-1.2.1-2 .3-2.7.5-.7.3-1.3.7-1.9 1.3-.6.6-1 1.2-1.3 1.9-.3.7-.5 1.5-.5 2.7-.1 1.2-.1 1.5-.1 4.5s0 3.3.1 4.5c.1 1.2.3 2 .5 2.7.3.7.7 1.3 1.3 1.9.6.6 1.2 1 1.9 1.3.7.3 1.5.5 2.7.5 1.2.1 1.5.1 4.5.1s3.3 0 4.5-.1c1.2-.1 2-.3 2.7-.5.7-.3 1.3-.7 1.9-.13.6-.6 1-1.2 1.3-1.9.3-.7.5-1.5.5-2.7.1-1.2.1-1.5.1-4.5s0-3.3-.1-4.5c-.1-1.2-.3-2-.5-2.7-.3-.7-.7-.313-1.3-1.9-.6-.6-1.2-1-1.9-1.3-.7-.3-1.5-.5-2.7-.5-1.2-.1-1.5-.1-4.5-.1zM22 16.5c-3 0-5.5 2.5-5.5 5.5s2.5 5.5 5.5 5.5 5.5-2.5 5.5-5.5-2.5-5.5-5.5-5.5zm0 9c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.7-10.2c0 .7-.6 1.3-1.3 1.3s-1.3-.6-1.3-1.3.6-1.3 1.3-1.3 1.3.6 1.3 1.3z' fill='white'/%3E%3C/svg%3E");
+        }
+        .social-link.ig:hover {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='8' fill='%23e1306c'/%3E%3Cpath d='M22 13.2c2.9 0 3.2 0 4.4.1 1 .1 1.6.3 2 .4.5.2.9.5 1.3.9.4.4.7.8.9 1.3.1.4.3 1 .4 2 .1 1.2.1 1.5.1 4.4s0 3.2-.1 4.4c-.1 1-.3 1.6-.4 2-.2.5-.5.9-.9 1.3-.4.4-.8.7-1.3.9-.4.1-1 .3-2 .4-1.2.1-1.5.1-4.4.1s-3.2 0-4.4-.1c-1-.1-1.6-.3-2-.4-.5-.2-.9-.5-1.3-.9-.4-.4-.7-.8-.9-1.3-.1-.4-.3-1-.4-2-.1-1.2-.1-1.5-.1-4.4s0-3.2.1-4.4c.1-1 .3-1.6.4-2 .2-.5.5-.9.9-1.3.4-.4.8-.7 1.3-.9.4-.1 1-.3 2-.4 1.2-.1 1.5-.1 4.4-.1zm0-2.2c-3 0-3.3 0-4.5.1-1.2.1-2 .3-2.7.5-.7.3-1.3.7-1.9 1.3-.6.6-1 1.2-1.3 1.9-.3.7-.5 1.5-.5 2.7-.1 1.2-.1 1.5-.1 4.5s0 3.3.1 4.5c.1 1.2.3 2 .5 2.7.3.7.7 1.3 1.3 1.9.6.6 1.2 1 1.9 1.3.7.3 1.5.5 2.7.5 1.2.1 1.5.1 4.5.1s3.3 0 4.5-.1c1.2-.1 2-.3 2.7-.5.7-.3 1.3-.7 1.9-.13.6-.6 1-1.2 1.3-1.9.3-.7.5-1.5.5-2.7.1-1.2.1-1.5.1-4.5s0-3.3-.1-4.5c-.1-1.2-.3-2-.5-2.7-.3-.7-.7-.313-1.3-1.9-.6-.6-1.2-1-1.9-1.3-.7-.3-1.5-.5-2.7-.5-1.2-.1-1.5-.1-4.5-.1zM22 16.5c-3 0-5.5 2.5-5.5 5.5s2.5 5.5 5.5 5.5 5.5-2.5 5.5-5.5-2.5-5.5-5.5-5.5zm0 9c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.7-10.2c0 .7-.6 1.3-1.3 1.3s-1.3-.6-1.3-1.3.6-1.3 1.3-1.3 1.3.6 1.3 1.3z' fill='white'/%3E%3C/svg%3E");
+        }
+
+        .social-link.yt {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='8' fill='%238a99a8'/%3E%3Cpath d='M33.5 17.4c-.2-1.6-1.5-2.8-3.1-3-2.8-.3-8.4-.3-8.4-.3s-5.6 0-8.4.3c-1.6.2-2.9 1.4-3.1 3-.3 2.1-.3 5.6-.3 5.6s0 3.5.3 5.6c.2 1.6 1.5 2.8 3.1 3 2.8.3 8.4.3 8.4.3s5.6 0 8.4-.3c1.6-.2 2.9-1.4 3.1-3 .3-2.1.3-5.6-.3-5.6s0-3.5-.3-5.6zm-14 8.1v-7l6 3.5-6 3.5z' fill='white'/%3E%3C/svg%3E");
+        }
+        .social-link.yt:hover {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='8' fill='%23ff0000'/%3E%3Cpath d='M33.5 17.4c-.2-1.6-1.5-2.8-3.1-3-2.8-.3-8.4-.3-8.4-.3s-5.6 0-8.4.3c-1.6.2-2.9 1.4-3.1 3-.3 2.1-.3 5.6-.3 5.6s0 3.5.3 5.6c.2 1.6 1.5 2.8 3.1 3 2.8.3 8.4.3 8.4.3s5.6 0 8.4-.3c1.6-.2 2.9-1.4 3.1-3 .3-2.1.3-5.6-.3-5.6s0-3.5-.3-5.6zm-14 8.1v-7l6 3.5-6 3.5z' fill='white'/%3E%3C/svg%3E");
+        }
+
+        .footer-line {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 30px 0 20px 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fridge-section">
+        <h1 class="page-title">What do I have in my fridge?</h1>
+        <br><br>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://st.depositphotos.com/2435397/3667/i/450/depositphotos_36673193-stock-photo-bell-pepper.jpg" alt="Pepper" class="product-icon">
+                <span class="product-name">Pepper</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://img.icons8.com/color/96/apple.png" alt="Apple" class="product-icon">
+                <span class="product-name">Apple</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://img.icons8.com/color/96/cheese.png" alt="Cheese" class="product-icon">
+                <span class="product-name">Cheese</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://img.icons8.com/color/96/corn.png" alt="Corn" class="product-icon">
+                <span class="product-name">Corn</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://img.icons8.com/color/96/mushroom.png" alt="Mushroom" class="product-icon">
+                <span class="product-name">Mushroom</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://img.icons8.com/color/96/garlic.png" alt="Garlic" class="product-icon">
+                <span class="product-name">Garlic</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://img.icons8.com/color/96/steak.png" alt="Beef" class="product-icon">
+                <span class="product-name">Beef</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://img.icons8.com/color/96/fish.png" alt="Fish" class="product-icon">
+                <span class="product-name">Fish</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://img.icons8.com/color/96/eggs.png" alt="Eggs" class="product-icon">
+                <span class="product-name">Eggs</span>
+            </div>
+
+            <div class="product-card">
+                <img src="https://img.icons8.com/color/96/parsley.png" alt="Coriander" class="product-icon">
+                <span class="product-name">Coriander</span>
+            </div>
+        </div>
+
+        <p class="footer-note">that's all</p>
+    </div>
+
+    <nav class="vertical-menu">
+        <a href="#" class="menu-item edit">
+            <svg class="menu-icon" viewBox="0 0 24 24">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            </svg>
+            <span>EDIT</span>
+        </a>
+
+        <a href="#" class="menu-item favorites">
+            <svg class="menu-icon" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span>FAVORITES</span>
+        </a>
+
+        <a href="#" class="menu-item history">
+            <svg class="menu-icon" viewBox="0 0 24 24">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+            </svg>
+            <span>HISTORY</span>
+        </a>
+
+        <a href="#" class="menu-item security">
+            <svg class="menu-icon" viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>SECURITY</span>
+        </a>
+
+        <a href="#" class="menu-item settings">
+            <svg class="menu-icon" viewBox="0 0 24 24">
+                <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+            </svg>
+            <span>SETTINGS</span>
+        </a>
+    </nav>
+
+    <footer class="custom-footer">
+        <div class="footer-top">
+            
+            <div class="footer-links-container">
+                <div class="footer-column">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Gallery</a>
+                    <a href="#">News</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Blog</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contacts</a>
+                    <a href="#">Privacy & cookies</a>
+                </div>
+            </div>
+
+            <div class="footer-socials">
+                <a href="#" class="social-link fb" title="Facebook"></a>
+                <a href="#" class="social-link ig" title="Instagram"></a>
+                <a href="#" class="social-link yt" title="YouTube"></a>
+            </div>
+
+        </div>
+
+        <hr class="footer-line">
+
+        <div class="footer-bottom">
+            Copyright © Company 2018 - 2019
+        </div>
+    </footer>
+
+</body>
+</html>

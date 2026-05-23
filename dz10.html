@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Booking Form</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #e0eafc, #cfdef3); 
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .booking-form {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 { text-align: center; color: #2c3e50; margin-bottom: 25px; }
+
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; color: #555; }
+        
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+
+        .options-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 5px; }
+        .option-item { display: flex; align-items: center; gap: 5px; font-size: 14px; cursor: pointer; }
+
+        .btn-container { display: flex; gap: 10px; margin-top: 20px; }
+        button { 
+            flex: 1; padding: 12px; border: none; border-radius: 8px; 
+            cursor: pointer; font-weight: bold; transition: 0.3s; 
+        }
+        .btn-book { background-color: #3498db; color: white; }
+        .btn-book:hover { background-color: #2980b9; }
+        .btn-reset { background-color: #ecf0f1; color: #7f8c8d; }
+        .btn-reset:hover { background-color: #bdc3c7; }
+    </style>
+</head>
+<body>
+
+<form class="booking-form">
+    <h2>✈️ Подорож вашої мрії</h2>
+
+    <div class="form-group">
+        <label>Full name</label>
+        <input type="text" placeholder="Іван Іваненко" required>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="email@example.com" required>
+    </div>
+    <div class="form-group">
+        <label>Phone number</label>
+        <input type="tel" placeholder="+380XXXXXXXXX" required>
+    </div>
+
+    <div class="form-group">
+        <label>Destination</label>
+        <select>
+            <option>Paris</option>
+            <option>Rome</option>
+            <option>Tokyo</option>
+            <option>New York</option>
+            <option>Barcelona</option>
+        </select>
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+        <div class="form-group" style="flex:1">
+            <label>Departure</label>
+            <input type="date">
+        </div>
+        <div class="form-group" style="flex:1">
+            <label>Return</label>
+            <input type="date">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Accommodation</label>
+        <div class="options-group">
+            <label class="option-item"><input type="radio" name="hotel" checked> Hotel</label>
+            <label class="option-item"><input type="radio" name="hotel"> Apartment</label>
+            <label class="option-item"><input type="radio" name="hotel"> Hostel</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Extras</label>
+        <div class="options-group">
+            <label class="option-item"><input type="checkbox"> Breakfast</label>
+            <label class="option-item"><input type="checkbox"> Airport transfer</label>
+            <label class="option-item"><input type="checkbox"> Guide</label>
+            <label class="option-item"><input type="checkbox"> Insurance</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Special requests</label>
+        <textarea rows="3" placeholder="Розкажіть про ваші побажання..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Payment Method</label>
+        <div class="options-group">
+            <label class="option-item"><input type="radio" name="pay" checked> Card</label>
+            <label class="option-item"><input type="radio" name="pay"> Cash</label>
+            <label class="option-item"><input type="radio" name="pay"> PayPal</label>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <button type="submit" class="btn-book">Book now</button>
+        <button type="reset" class="btn-reset">Reset</button>
+    </div>
+</form>
+
+</body>
+</html>

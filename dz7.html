@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Дашборд клініки</title>
+    <style>
+        body { margin: 0; font-family: sans-serif; }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: 
+                "header header"
+                "sidebar main"
+                "footer footer";
+            min-height: 100vh;
+        }
+
+        header { grid-area: header; background: #2c3e50; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        aside { grid-area: sidebar; background: #34495e; color: white; padding: 20px; }
+        main { grid-area: main; padding: 20px; background: #ecf0f1; }
+        footer { grid-area: footer; background: #2c3e50; color: white; padding: 10px; text-align: center; }
+
+        aside ul { list-style: none; padding: 0; }
+        aside li { padding: 10px 0; border-bottom: 1px solid #455a64; }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: scale(1.02); background: #f9f9f9; }
+        .big-card { grid-column: span 2; }
+    </style>
+</head>
+<body>
+
+    <div class="layout">
+        <header>
+            <div>Клініка "Здоров'я"</div>
+            <button>Вихід</button>
+        </header>
+
+        <aside>
+            <nav>
+                <ul>
+                    <li>Пацієнти</li>
+                    <li>Лікарі</li>
+                    <li>Розклад</li>
+                    <li>Звіти</li>
+                    <li>Налаштування</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <h1>Вітаємо в панелі управління</h1>
+            <p>Тут ви можете керувати записами на прийом та переглядати звіти клініки.</p>
+
+            <div class="cards-container">
+                <div class="card"><h3>Пацієнти</h3><p>Всього сьогодні: 15</p></div>
+                <div class="card"><h3>Лікарі</h3><p>Доступно: 8</p></div>
+                <div class="card"><h3>Записи</h3><p>На завтра: 24</p></div>
+                <div class="card big-card"><h3>Важливі сповіщення</h3><p>Це велика картка для термінових повідомлень адміністації клініки.</p></div>
+            </div>
+        </main>
+
+        <footer>
+            © 2026 Клініка "Здоров'я". Всі права захищені.
+        </footer>
+    </div>
+
+</body>
+</html>
